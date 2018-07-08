@@ -34,7 +34,7 @@
 3.ToutiaoSpider source code:
 经过上面的分析，要获取图片,至少要经过一下几个步骤：
 
-1. 爬取“https://www.toutiao.com/search/?keyword=街拍”页面的内容，同时要传入查询参数：本步骤response的内容为offset=0的20个图集的图集地址为JSON格式，进行JSON解析后，得到每个图集的地址；
+1. 爬取“https://www.toutiao.com/search/?keyword=街拍” 页面的内容，同时要传入查询参数：本步骤response的内容为offset=0的20个图集的图集地址为JSON格式，进行JSON解析后，得到每个图集的地址；
 2. 对于每一个图集地址进行转化，得到真正的图集地址；
 3. 爬取图集地址的内容，对内容进行JSON解析，获取20个图集的每个图集的若干张照片的url地址；若要获取更多就需要在步骤1中，将offset设为参数，这样获取的照片数就是 N个offset*20*每个图集的照片数；
 4. 通过照片的url地址经图片下载并保存到数据库中。
