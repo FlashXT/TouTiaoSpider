@@ -2,7 +2,7 @@
 # <center>今日头条街拍美图爬取(2018.7)</center>
 ##1.查看网站跳转规则，了解网站运行机制
 <font size = 3>①进入头条网站：www.taotiao.com;
-![www.taotiao.com](https://i.imgur.com/YiAbBXl.jpg)
+[www.taotiao.com!](https://i.imgur.com/YiAbBXl.jpg)
 ②在右上方的搜索框输入“街拍”，点击搜索，观察地址栏变化：
 ![https://www.toutiao.com/search/?keyword=街拍](https://i.imgur.com/aZm8YJE.jpg)
 地址栏多了一个keyword参数，抓取网页的时候可以把keyword作为参数；打开调试器NetWork的Headers,可以发现真实的请求地址：真实的地址中还包含了若干请求参数：
