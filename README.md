@@ -9,7 +9,7 @@
 地址栏多了一个keyword参数，抓取网页的时候可以把keyword作为参数；打开调试器NetWork的Headers,可以发现真实的请求地址：真实的地址中还包含了若干请求参数：
 ![Real Request Url](https://i.imgur.com/1WgrHjp.jpg)
 每个offset的查询参数如下：
-<center>![quey parameters](https://i.imgur.com/bmC5wMN.jpg)</center>
+![quey parameters](https://i.imgur.com/bmC5wMN.jpg)
 ③切换到“图集”选项块，地址栏没有变化；
 ![offset](https://i.imgur.com/lgaEnEY.jpg)
 分别点击“综合，视频，图集，用户”几个选项卡，发现地址栏均没有变化，按F12打开调试器,查看后台的变化：选中NetWork,XHR,(XHR就是 XMLHttpRequest 对象,也就是ajax功能实现所依赖的对象)可以发现地址的from部分其实是有变化的，“综合，视频，图集，用户”几个选项卡分别对应“search_tab,video,gallery,media”,选中"from=gallery"，打开Preview查看其内容,在Preview中的data字段的内容中可以发现title字段和页面中的文字有对用的地方：
