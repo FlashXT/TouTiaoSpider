@@ -1,6 +1,6 @@
 
 # <center>今日头条街拍美图爬取(2018.7)</center>
-##1.查看网站跳转规则，了解网站运行机制
+## 1.查看网站跳转规则，了解网站运行机制
 <font size = 3>①进入头条网站：www.taotiao.com;
  ![www.taotiao.com](https://i.imgur.com/YiAbBXl.jpg)
 ②在右上方的搜索框输入“街拍”，点击搜索，观察地址栏变化：
