@@ -1,4 +1,4 @@
-<font face= '微软雅黑'>
+
 # <center>今日头条街拍美图爬取(2018.7)</center>
 ##1.查看网站跳转规则，了解网站运行机制
 <font size = 3>①进入头条网站：www.taotiao.com;
