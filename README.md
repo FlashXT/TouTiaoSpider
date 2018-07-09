@@ -1,6 +1,6 @@
-<font face ="微软雅黑">
- 
-# <center/>今日头条街拍美图爬取(2018.7)
+<font face="微软雅黑">
+
+#今日头条街拍美图爬取(2018.7)
 ## 1.查看网站跳转规则，了解网站运行机制
 <font size = 3>①进入头条网站：www.taotiao.com;
  ![www.taotiao.com](https://i.imgur.com/YiAbBXl.jpg)
@@ -38,10 +38,10 @@
 1. 爬取“https://www.toutiao.com/search/?keyword=街拍” 页面的内容，同时要传入查询参数：本步骤response的内容为offset=0的20个图集的图集地址为JSON格式，进行JSON解析后，得到每个图集的地址；
 2. 对于每一个图集地址进行转化，得到真正的图集地址；
 3. 爬取图集地址的内容，对内容进行JSON解析，获取20个图集的每个图集的若干张照片的url地址；若要获取更多就需要在步骤1中，将offset设为参数，这样获取的照片数就是 N个offset*20*每个图集的照片数；
-4. 通过照片的url地址经图片下载并保存到数据库中。
+4. 通过照片的url地址将图片下载到本地并保存到数据库中。
 
-Version1.0:抓取一个offset的多个图集的照片;
 </font>
+
 
 
 
