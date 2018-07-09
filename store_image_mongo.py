@@ -1,7 +1,6 @@
 #coding = utf-8
 #####################################################################
-#简介：分析Ajax抓取今日头条街拍美图,Version2.0(爬取一个offset的多个图集的每
-#     个图集的多个图片的url.)
+#简介：分析Ajax抓取今日头条街拍美图,Version2.0.
 #Author:FlashXT
 #Date:2018/7/9,Monday,rainy
 #Copyright © 2018–2020 FlashXT and turboMan. All rights reserved.
