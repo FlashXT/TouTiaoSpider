@@ -2,7 +2,7 @@
 #####################################################################
 #简介：分析Ajax抓取今日头条街拍美图,Version3.0
 #Author:FlashXT
-#Date:2018/7/8,Monday,rainy
+#Date:2018/7/9,Tuesday,cloudy
 #Copyright © 2018–2020 FlashXT and turboMan. All rights reserved.
 #####################################################################
 import re
