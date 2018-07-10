@@ -87,7 +87,6 @@ def parse_image_url(url,html):
     else:return None
 
 def save_to_mongo(dic):
-    #将
     if db[MONGO_TABLE].insert(dic):
         print('存储到MONGO_DB Successful！')
         return True
