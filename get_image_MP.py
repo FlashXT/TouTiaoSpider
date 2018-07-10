@@ -1,23 +1,25 @@
 #coding = utf-8
 #####################################################################
-#简介：分析Ajax抓取今日头条街拍美图,Version3.0
+#简介：分析Ajax抓取今日头条街拍美图,Version4.0,多线程版本
 #Author:FlashXT
 #Date:2018/7/9,Tuesday,cloudy
 #Copyright © 2018–2020 FlashXT and turboMan. All rights reserved.
 #####################################################################
-import re
-import json
 
 import os
-import requests
+import re
+import json
 import pymongo
+import requests
+
+from config import *
+from hashlib import md5
+from bs4 import BeautifulSoup
 from json import JSONDecodeError
 from urllib.parse import urlencode
-from hashlib import md5
-
-from bs4 import BeautifulSoup
+from multiprocessing import Pool
 from requests import RequestException
-from config import *
+
 
 client = pymongo.MongoClient(MONGO_URL)
 db = client[MONGO_DB]
@@ -87,7 +89,6 @@ def parse_image_url(url,html):
     else:return None
 
 def save_to_mongo(dic):
-    #将
     if db[MONGO_TABLE].insert(dic):
         print('存储到MONGO_DB Successful！')
         return True
@@ -121,28 +122,30 @@ def save_image(title,content):
     except Exception :
 	    # print("Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         return False
-def main():
-    for offset in range(6):
-        print("offset--->", offset * 20)
-        #获取每一个offset的多个图集地址
-        text= get_gallery_url(offset*20,"街拍")
-        #对每个图集的地址进行转化
-        parsed_url = parse_gallery_url(text)
-        #获取每个图集中的照片地址
-        for item in parsed_url:
-            html = get_image_html(item)
-            try:
-                result = parse_image_url(item,html)
-                if result:
-                    if result['image_url'] is not None:
-                       #下载语句
-                        download_image(result)
-                       #存入MongoDB的语句
-                       # print(item)
-                       # save_to_mongo(result)
+def main(offset):
+    print("offset--->", offset)
+    #获取每一个offset的多个图集地址
+    text= get_gallery_url(offset,"街拍")
+    #对每个图集的地址进行转化
+    parsed_url = parse_gallery_url(text)
+    #获取每个图集中的照片地址
+    for item in parsed_url:
+        html = get_image_html(item)
+        try:
+            result = parse_image_url(item,html)
+            if result:
+                if result['image_url'] is not None:
+                   #下载语句
+                    download_image(result)
+                   #存入MongoDB的语句
+                   # print(item)
+                   # save_to_mongo(result)
 
-            except: continue
+        except: continue
 
 if __name__ == "__main__":
-    main()
+    pool = Pool()
+    pool.map(main,[offset*20 for offset in range(6)])
+    pool.close()
+    pool.join()
 
